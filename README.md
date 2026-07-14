@@ -17,7 +17,7 @@ The script downloads everything from official repositories and configures your p
 
 ```bash
 # Clone this repo
-git clone https://github.com/<your-user>/AIDLC_Angular_NET.git
+git clone https://github.com/electronicasfederico/AIDLC_Angular_NET.git
 cd AIDLC_Angular_NET
 
 # Run against your project
@@ -166,12 +166,51 @@ This project integrates skills and rules from these official repositories:
 | **OpenCode** | [opencode.ai](https://opencode.ai) | [MIT](https://github.com/anomalyco/opencode/blob/main/LICENSE) | AI-powered coding assistant with skill system |
 | **Claude Code** | [Anthropic](https://claude.ai) | Proprietary | AI coding assistant by Anthropic |
 
+## Windows (PowerShell)
+
+A PowerShell version is also available for Windows users:
+
+```powershell
+# Basic usage
+.\setup-aidlc-env.ps1 -TargetDir C:\path\to\project
+
+# Claude Code, both frameworks
+.\setup-aidlc-env.ps1 -TargetDir C:\my-api -Agent both
+
+# Angular only, force overwrite
+.\setup-aidlc-env.ps1 -TargetDir C:\my-app -Frameworks angular -Force
+
+# Get help
+.\setup-aidlc-env.ps1 -Help
+```
+
+### PowerShell Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `-TargetDir DIR` | *(required)* | Target project directory |
+| `-Agent AGENT` | `opencode` | `opencode`, `claude`, or `both` |
+| `-Frameworks LIST` | `both` | `angular`, `dotnet`, or `both` |
+| `-Force` | off | Overwrite existing files |
+| `-SkipDownload` | off | Use local source directory |
+| `-SourceDir DIR` | | Local source for offline mode |
+| `-AidlcRef REF` | `main` | Git ref for AIDLC rules |
+| `-AngularRef REF` | `main` | Git ref for Angular skills |
+| `-DotnetRef REF` | `main` | Git ref for .NET skills |
+
 ## Requirements
 
+### Linux/macOS
 - `bash` 4.0+
 - `curl`
 - `tar`
 - Internet connection (for downloading from GitHub, or use `--skip-download` for offline mode)
+
+### Windows
+- PowerShell 5.1+
+- `curl` (included in Windows 10+)
+- `tar` (included in Windows 10+)
+- Internet connection
 
 ## License
 
